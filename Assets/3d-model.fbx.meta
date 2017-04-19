@@ -1,0 +1,270 @@
+fileFormatVersion: 2
+guid: 47e9b34cb3cb0c24c96099c26a1056f1
+timeCreated: 1492504876
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: border#2_001
+    100004: border#2_002
+    100006: border#2_003
+    100008: border#2_004
+    100010: border#2_005
+    100012: border#2_006
+    100014: border#2_007
+    100016: border#2_008
+    100018: Group_001
+    100020: Group_002
+    100022: Group_004
+    100024: Group_005
+    100026: Group_006
+    100028: Group_007
+    100030: segment#5_001
+    100032: segment#5_002
+    100034: segment#5_003
+    100036: segment#5_004
+    100038: segment#6_001
+    100040: segment#6_002
+    100042: segment#6_003
+    100044: segment#6_004
+    100046: spoke curve#2_001
+    100048: spoke curve#2_003
+    100050: spoke curve#2_005
+    100052: spoke curve#2_007
+    100054: spoke curve#2_009
+    100056: spoke curve#2_011
+    100058: spoke curve#2_013
+    100060: spoke curve#2_015
+    100062: spoke straight#2_001
+    100064: spoke straight#2_003
+    100066: spoke straight#2_005
+    100068: spoke straight#2_007
+    100070: spoke straight#2_009
+    100072: spoke straight#2_011
+    100074: spoke straight#2_013
+    100076: spoke straight#2_015
+    400000: //RootNode
+    400002: border#2_001
+    400004: border#2_002
+    400006: border#2_003
+    400008: border#2_004
+    400010: border#2_005
+    400012: border#2_006
+    400014: border#2_007
+    400016: border#2_008
+    400018: Group_001
+    400020: Group_002
+    400022: Group_004
+    400024: Group_005
+    400026: Group_006
+    400028: Group_007
+    400030: segment#5_001
+    400032: segment#5_002
+    400034: segment#5_003
+    400036: segment#5_004
+    400038: segment#6_001
+    400040: segment#6_002
+    400042: segment#6_003
+    400044: segment#6_004
+    400046: spoke curve#2_001
+    400048: spoke curve#2_003
+    400050: spoke curve#2_005
+    400052: spoke curve#2_007
+    400054: spoke curve#2_009
+    400056: spoke curve#2_011
+    400058: spoke curve#2_013
+    400060: spoke curve#2_015
+    400062: spoke straight#2_001
+    400064: spoke straight#2_003
+    400066: spoke straight#2_005
+    400068: spoke straight#2_007
+    400070: spoke straight#2_009
+    400072: spoke straight#2_011
+    400074: spoke straight#2_013
+    400076: spoke straight#2_015
+    2300000: border#2_001
+    2300002: border#2_002
+    2300004: border#2_003
+    2300006: border#2_004
+    2300008: border#2_005
+    2300010: border#2_006
+    2300012: border#2_007
+    2300014: border#2_008
+    2300016: Group_001
+    2300018: Group_002
+    2300020: Group_004
+    2300022: Group_005
+    2300024: Group_006
+    2300026: Group_007
+    2300028: segment#5_001
+    2300030: segment#5_002
+    2300032: segment#5_003
+    2300034: segment#5_004
+    2300036: segment#6_001
+    2300038: segment#6_002
+    2300040: segment#6_003
+    2300042: segment#6_004
+    2300044: spoke curve#2_001
+    2300046: spoke curve#2_003
+    2300048: spoke curve#2_005
+    2300050: spoke curve#2_007
+    2300052: spoke curve#2_009
+    2300054: spoke curve#2_011
+    2300056: spoke curve#2_013
+    2300058: spoke curve#2_015
+    2300060: spoke straight#2_001
+    2300062: spoke straight#2_003
+    2300064: spoke straight#2_005
+    2300066: spoke straight#2_007
+    2300068: spoke straight#2_009
+    2300070: spoke straight#2_011
+    2300072: spoke straight#2_013
+    2300074: spoke straight#2_015
+    3300000: border#2_001
+    3300002: border#2_002
+    3300004: border#2_003
+    3300006: border#2_004
+    3300008: border#2_005
+    3300010: border#2_006
+    3300012: border#2_007
+    3300014: border#2_008
+    3300016: Group_001
+    3300018: Group_002
+    3300020: Group_004
+    3300022: Group_005
+    3300024: Group_006
+    3300026: Group_007
+    3300028: segment#5_001
+    3300030: segment#5_002
+    3300032: segment#5_003
+    3300034: segment#5_004
+    3300036: segment#6_001
+    3300038: segment#6_002
+    3300040: segment#6_003
+    3300042: segment#6_004
+    3300044: spoke curve#2_001
+    3300046: spoke curve#2_003
+    3300048: spoke curve#2_005
+    3300050: spoke curve#2_007
+    3300052: spoke curve#2_009
+    3300054: spoke curve#2_011
+    3300056: spoke curve#2_013
+    3300058: spoke curve#2_015
+    3300060: spoke straight#2_001
+    3300062: spoke straight#2_003
+    3300064: spoke straight#2_005
+    3300066: spoke straight#2_007
+    3300068: spoke straight#2_009
+    3300070: spoke straight#2_011
+    3300072: spoke straight#2_013
+    3300074: spoke straight#2_015
+    4300000: spoke straight#2_015
+    4300002: border#2_008
+    4300004: border#2_007
+    4300006: spoke curve#2_015
+    4300008: spoke curve#2_013
+    4300010: segment#5_004
+    4300012: spoke curve#2_011
+    4300014: segment#6_004
+    4300016: spoke straight#2_013
+    4300018: border#2_006
+    4300020: border#2_005
+    4300022: spoke curve#2_009
+    4300024: border#2_004
+    4300026: segment#5_003
+    4300028: spoke curve#2_007
+    4300030: segment#6_003
+    4300032: spoke curve#2_005
+    4300034: border#2_003
+    4300036: spoke straight#2_011
+    4300038: segment#5_002
+    4300040: segment#6_002
+    4300042: spoke straight#2_009
+    4300044: spoke straight#2_007
+    4300046: segment#5_001
+    4300048: border#2_002
+    4300050: spoke curve#2_003
+    4300052: spoke straight#2_005
+    4300054: spoke straight#2_003
+    4300056: spoke straight#2_001
+    4300058: border#2_001
+    4300060: spoke curve#2_001
+    4300062: segment#6_001
+    4300064: Group_007
+    4300066: Group_006
+    4300068: Group_005
+    4300070: Group_004
+    4300072: Group_002
+    4300074: Group_001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

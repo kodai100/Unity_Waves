@@ -1,0 +1,91 @@
+﻿#pragma kernel InitializeOld
+#pragma kernel InitializeTmp
+#pragma kernel Update
+#pragma kernel CopyBuffer
+#pragma kernel Interaction
+
+#define SIMULATION_BLOCK_SIZE 32
+
+RWStructuredBuffer<float> u_old;
+RWStructuredBuffer<float> u_tmp;
+RWStructuredBuffer<float> u_new;
+
+cbuffer cb {
+	int _Num;
+	int _BufferSize; 
+	float _DT;
+	float _DD;
+	float _C;
+	float _Decay;
+	float _InteractionIntensity;
+	float3 _ObjPos;
+};
+
+[numthreads(SIMULATION_BLOCK_SIZE,1,1)]
+void InitializeOld (uint3 DTid : SV_DispatchThreadID) {
+	int id = DTid.x;
+
+	u_old[id] = 0;
+	u_new[id] = 0;
+
+	if (id < _Num || id % _Num == 0 || id >= _BufferSize - _Num || id % _Num == _Num - 1) {
+		return;
+	}
+
+	float2 a = float2(id % _Num, id / _Num);
+	float2 center = float2(_Num / 2, _Num / 2);
+
+	if (distance(center, a) < 10) u_old[id] = 2;
+}
+
+[numthreads(SIMULATION_BLOCK_SIZE, 1, 1)]
+void InitializeTmp(uint3 DTid : SV_DispatchThreadID) {
+	int id = DTid.x;
+
+	u_tmp[id] = 0;
+
+	if (id < _Num || id % _Num == 0 || id >= _BufferSize - _Num || id % _Num == _Num - 1) {
+		return;
+	}
+
+	uint up = id - _Num;
+	uint left = id - 1;
+	uint bottom = id + _Num;
+	uint right = id + 1;
+
+	u_tmp[id] = u_old[id] + _C * _C / 2 * _DT * _DT / (_DD * _DD) * (u_old[bottom] + u_old[up] + u_old[right] + u_old[left] - 4 * u_old[id]);
+}
+
+[numthreads(SIMULATION_BLOCK_SIZE, 1, 1)]
+void Update(uint3 DTid : SV_DispatchThreadID) {
+	int id = DTid.x;
+
+	if (id < _Num || id % _Num == 0 || id >= _BufferSize - _Num || id % _Num == _Num - 1) {
+		return;
+	}
+
+	uint up = id - _Num;
+	uint left = id - 1;
+	uint bottom = id + _Num;
+	uint right = id + 1;
+
+	u_new[id] = _Decay * (2.0 * u_tmp[id] - u_old[id] + _C * _C * _DT * _DT / (_DD * _DD) * (u_tmp[bottom] + u_tmp[up] + u_tmp[right] + u_tmp[left] - 4.0 * u_tmp[id]));
+}
+
+[numthreads(SIMULATION_BLOCK_SIZE, 1, 1)]
+void CopyBuffer(uint3 DTid : SV_DispatchThreadID) {
+	int id = DTid.x;
+	u_old[id] = u_tmp[id];
+	u_tmp[id] = u_new[id];
+}
+
+[numthreads(SIMULATION_BLOCK_SIZE, 1, 1)]
+void Interaction(uint3 DTid : SV_DispatchThreadID) {
+	int id = DTid.x;
+
+	float2 a = float2(id % _Num, id / _Num);
+	float2 center = float2(_ObjPos.x, _ObjPos.z);
+
+	if (distance(center, a) < 10) u_new[id] = _InteractionIntensity;
+	
+}

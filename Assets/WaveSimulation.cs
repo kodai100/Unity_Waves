@@ -8,51 +8,47 @@ namespace kodai.Wave.Two {
 
         public int num = 256;
 
+        public float decay = 0.99f;
         public float dt = 1/60f;
         public float dd = 0.1f;
         public float c = 1;
 
+        public float interaction_depth = -0.2f;
+
         private float[,] u_old;
         private float[,] u_tmp;
         public float[,] u_new;
-
-        Texture2D texture;
+        public Transform sphere;
         
         void Start() {
             u_old = new float[num + 2, num+2]; // 境界分を余分にとる
             u_tmp = new float[num + 2, num + 2];
             u_new = new float[num + 2, num + 2];
 
-            texture = new Texture2D(256,256);
-            texture.filterMode = FilterMode.Point;
-
             Initialize();
-
-            ApplyTexture();
         }
-        
+
+        float time = 0;
         void Update() {
 
             for (int y = 1; y < num + 1; y++) {
                 for (int x = 1; x < num + 1; x++) {
-                    u_new[y, x] = 2f * u_tmp[y, x] - u_old[y, x] + c * c * dt * dt / (dd * dd) * (u_tmp[y + 1, x] + u_tmp[y - 1, x] + u_tmp[y, x + 1] + u_tmp[y, x - 1] - 4.0f * u_tmp[y,x]);
+                    u_new[y, x] = decay * (2f * u_tmp[y, x] - u_old[y, x] + c * c * dt * dt / (dd * dd) * (u_tmp[y + 1, x] + u_tmp[y - 1, x] + u_tmp[y, x + 1] + u_tmp[y, x - 1] - 4.0f * u_tmp[y,x]));
                 }
             }
 
-            if (Input.GetMouseButtonUp(0)) {
+            time += Time.deltaTime;
+            if(sphere != null) {
                 for (int y = 1; y < num + 1; y++) {
                     for (int x = 1; x < num + 1; x++) {
-                        if (Vector2.Distance(new Vector2(num / 2, num / 2), new Vector2(x, y)) < 10) {
-                            u_new[y, x] = 0.1f;
+                        if (Vector2.Distance(new Vector2(sphere.position.x, sphere.position.z), new Vector2(x, y)) < 5) {
+                            u_new[y, x] = interaction_depth;
                         }
                     }
                 }
-                
             }
 
             SetBoundaryCondition();
-
-            ApplyTexture();
             
             FlipBuffer();
         }
@@ -85,9 +81,6 @@ namespace kodai.Wave.Two {
                     u_old[y, x] = 0;
                     u_tmp[y, x] = 0;
                     u_new[y, x] = 0;
-                    if(Vector2.Distance(new Vector2(num/2, num/2), new Vector2(x, y)) < 10) {
-                        u_old[y, x] = 1;
-                    }
                 }
             }
 
@@ -109,14 +102,6 @@ namespace kodai.Wave.Two {
                 }
             }
         }
-
-        void ApplyTexture() {
-            for (int y = 1; y < num + 1; y++) {
-                for (int x = 1; x < num + 1; x++) {
-                    texture.SetPixel(x - 1, y - 1, new Color(u_new[y,x]/2f +0.5f, u_new[y, x] / 2f + 0.5f, u_new[y, x] / 2f + 0.5f));
-                }
-            }
-            texture.Apply();
-        }
+        
     }
 }
